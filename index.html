@@ -5,13 +5,16 @@
   <title>Flappy Bird – Smooth Balanced Version</title>
 
   <style>
-    body {
+    /* 🔥 FULL DEVICE SIZE */
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
       background: #70c5ce;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       user-select: none;
       font-family: Arial;
     }
@@ -20,9 +23,11 @@
       background: url('img/background.png') repeat-y center top;
       background-size: cover;
       border: 2px solid #000;
+      display: block;
+      width: 100vw;   /* full width */
+      height: 100vh;  /* full height */
     }
 
-    /* 🔥 CLICK TO START SCREEN */
     #startScreen {
       position: fixed;
       top: 50%;
@@ -34,6 +39,7 @@
       border-radius: 10px;
       border: 2px solid black;
       display: block;
+      z-index: 5;
     }
 
     #startScreen h1 {
@@ -58,6 +64,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
       text-align: center;
       display: none;
+      z-index: 6;
     }
 
     #popup button {
@@ -74,9 +81,9 @@
 
 <body>
 
-  <canvas id="gameCanvas" width="400" height="600"></canvas>
+  <!-- 🔥 FULLSCREEN CANVAS -->
+  <canvas id="gameCanvas"></canvas>
 
-  <!-- 🔥 CLICK TO START SCREEN -->
   <div id="startScreen">
     <h1>CLICK TO START</h1>
     <p>Tap or Click to Begin</p>
@@ -90,10 +97,19 @@
   <script>
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
+
     const popup = document.getElementById("popup");
     const startScreen = document.getElementById("startScreen");
 
     let bird, pipes, frame, score, gameOver, gameStarted;
+
+    /* 🔥 IMPORTANT: SET CANVAS EXACT DEVICE SIZE */
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     // Load bird image
     let birdImage = new Image();
@@ -113,7 +129,7 @@
     document.addEventListener("click", () => {
       if (!gameStarted) {
         gameStarted = true;
-        startScreen.style.display = "none"; // HIDE START
+        startScreen.style.display = "none";
         backgroundMusic.play();
       }
       bird.velocity = bird.jump;
@@ -128,28 +144,16 @@
     }
 
     function resetGame() {
-      // bird = {
-      //   x: 70,
-      //   y: 250,
-      //   width: 40,
-      //   height: 30,
-      //   gravity: 0.20,
-      //   velocity: 0,
-      //   jump: -5.2,
-      //   rotation: 0
-      // };
-
       bird = {
-  x: 70,
-  y: 250,
-  width: 60,   // 🔥 bigger width
-  height: 45,  // 🔥 bigger height
-  gravity: 0.20,
-  velocity: 0,
-  jump: -5.2,
-  rotation: 0
-};
-
+        x: 70,
+        y: canvas.height / 2,
+        width: 60,
+        height: 45,
+        gravity: 0.20,
+        velocity: 0,
+        jump: -5.2,
+        rotation: 0
+      };
 
       pipes = [];
       frame = 0;
@@ -158,7 +162,7 @@
       gameStarted = false;
 
       popup.style.display = "none";
-      startScreen.style.display = "block"; // SHOW START SCREEN AGAIN
+      startScreen.style.display = "block";
     }
 
     function retryGame() {
