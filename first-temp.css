@@ -1,0 +1,173 @@
+@media screen and(max-width){}
+@media screen and (max-width: 860px) {
+    .services {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .services.show-menu {
+        display: block;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #1a4fd6;
+        padding: 20px;
+        z-index: 10;
+    }
+
+    .services.show-menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-text .para {
+        text-align: center;
+    }
+    .circles {
+            padding-top: clamp(60px, 8vw, 100px);
+            justify-content: space-evenly;
+        }
+   
+     
+}
+@media screen and (max-width: 760px){
+    .bg-img-ctrl {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            flex-wrap: wrap;
+            min-height: 500px;
+        }
+  .left-box {
+            order: 2;
+             align-items: center;
+            text-align: center;
+        }
+        .right-box {
+            order: 1;
+        }
+         .left-box strong {
+            font-size: clamp(32px,2vw,40px);
+            font-weight: normal;
+            text-align: center;
+
+        }
+        
+        .text{
+            font-size:clamp(15px, 1vw,20px);
+            font-weight: 400;
+            color: #333333;
+            line-height: 1.8;
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+        }
+}
+
+@media screen and (max-width: 480px)
+{
+     .circles {
+             padding-top: clamp(60px, 8vw, 100px);
+            justify-content: space-around;
+            max-width: 360px;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 30px;
+
+        }
+        .circle {
+            max-width: 300px;
+            width: 100%;
+            aspect-ratio: 300/300;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .circle-head {
+            /* height: 150px; */
+            max-width: 120px;
+            width: 100%;
+            aspect-ratio: 120/120;
+            box-shadow:
+                -5px 0 5px -2px rgba(82, 80, 80, 0.3),
+                5px 0 5px -2px rgba(43, 42, 42, 0.3),
+                0 -5px 5px -2px rgba(53, 52, 52, 0.3);
+            border-bottom: 3px solid #0259ae;
+            border-radius: 50%;
+        }
+        .img1-position {
+            background-image: url(imgs/circle-1.webp);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40%;
+        }
+        .img2-position {
+            background-image: url(imgs/circle-2.webp);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40%;
+        }
+        .img3-position {
+            background-image: url(imgs/circle-3.webp);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40%;
+        }
+        .circle-body {
+            padding-top: 20px;
+            color: #333333;
+            font-weight:clamp(100,2vw, 200);
+            font-size: clamp(15px, 2vw, 17px);
+        }
+        .circle-footer {
+            padding-top: 10px;
+            line-height: 1.5;
+            text-align: center;
+            color: #333333;
+            font-weight:200;
+            font-size: clamp(14px, 1.5vw, 16px);
+            max-width: 250px;
+            width:100% ;    
+        }
+         .bg-img-ctrl {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            flex-wrap: wrap;
+            min-height: 500px;
+        }
+  .left-box {
+            order: 2;
+             align-items: center;
+            text-align: center;
+        }
+        .right-box {
+            order: 1;
+        }
+         .left-box strong {
+            font-size: clamp(32px,2vw,40px);
+            font-weight: normal;
+            text-align: center;
+
+        }
+        
+        .text{
+            font-size:clamp(14px, 1vw,16px);
+            font-weight: 300;
+            color: #333333;
+            line-height: 1.8;
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+            padding-top: 30px;
+        }
+}

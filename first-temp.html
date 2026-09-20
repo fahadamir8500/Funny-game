@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="first-temp.css">
+    <title>Strmo-Template</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #ffff;
+            overflow-x: hidden;
+        }
+
+        .border {
+            border: 1px solid black;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            min-height: 600px;
+            height: 100%;
+            background-color: #3b8df2;
+            position: relative;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            background-image: url(imgs/streamo-\ logo.webp);
+            width: clamp(120px, 15vw, 180px);
+            height: clamp(35px, 5vw, 50px);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .services ul {
+            display: flex;
+            list-style-type: none;
+            gap: clamp(15px, 3vw, 40px);
+        }
+
+        .services ul li a {
+            text-decoration: none;
+            color: #ffff;
+        }
+
+        .right-nav {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: clamp(15px, 5vw, 100px);
+            flex-wrap: wrap;
+        }
+
+        .nav-btn button {
+            background-color: white;
+            color: #1a4fd6;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hero-text {
+            text-align: center;
+            color: white;
+            padding: clamp(40px, 10vw, 150px) 20px clamp(60px, 8vw, 100px);
+        }
+
+        .hero-text .welcome {
+            font-size: clamp(12px, 1.5vw, 14px);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(26px, 5vw, 50px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text .para {
+            font-size: clamp(14px, 1.5vw, 16px);
+            max-width: 800px;
+            margin: 0 auto;
+            word-spacing: 4px;
+            line-height: 1.6;
+        }
+
+        .btn-main {
+            padding-top: 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            /* padding: 20px 35px; */
+            padding: clamp(12px, 2vw, 20px) clamp(25px, 3vw, 35px);
+            border-radius: 5px;
+            border: none;
+            margin: 10px;
+            font-weight: 600;
+        }
+
+        .primary-btn {
+            background-image: linear-gradient(to bottom, #3aa8f5, #1a3fd6);
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background-image: linear-gradient(to top, #3aa8f5, #1a3fd6);
+        }
+          .secondary-btn{
+            background-color: #ffffff;
+          }
+        .secondary-btn:hover {
+            background-image: linear-gradient(to top, #3aa8f5, #1a3fd6);
+        }
+
+        main.bg {
+            /* background-image: url(imgs/wave_imagebg.); */
+            background-position: center bottom 100px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            /* min-height: 100vh; */
+            width: 100%;
+        }
+
+        .laptop-img {
+            aspect-ratio: 500 / 300;
+            width: 90%;
+            max-width: 500px;
+            background-image: url(imgs/streamo-laptop.webp);
+            background-position: right;
+            background-size: 100%;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circles {
+            /* padding-top: 100px; */
+            padding-top: clamp(60px, 8vw, 100px);
+            justify-content: space-around;
+            max-width: 1200px;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+
+        .circle {
+            max-width: 300px;
+            width: 100%;
+            aspect-ratio: 300/300;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .circle-head {
+            /* height: 150px; */
+            max-width: 150px;
+            width: 100%;
+            aspect-ratio: 150/150;
+            box-shadow:
+                -5px 0 5px -2px rgba(82, 80, 80, 0.3),
+                5px 0 5px -2px rgba(43, 42, 42, 0.3),
+                0 -5px 5px -2px rgba(53, 52, 52, 0.3);
+            border-bottom: 3px solid #0259ae;
+            border-radius: 50%;
+        }
+
+        .img1-position {
+            background-image: url(imgs/circle-1.webp);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 50%;
+        }
+
+        .img2-position {
+            background-image: url(imgs/circle-2.webp);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 50%;
+        }
+
+        .img3-position {
+            background-image: url(imgs/circle-3.webp);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 50%;
+        }
+
+        .circle-body {
+            padding-top: 30px;
+            color: #333333;
+            font-weight: clamp(100, 2vw, 200);
+            font-size: clamp(13px, 2vw, 17px);
+        }
+
+        .circle-footer {
+            padding-top: 10px;
+            line-height: 1.5;
+            text-align: center;
+            color: #333333;
+            font-weight: 200;
+            font-size: clamp(14px, 1.5vw, 16px);
+            max-width: 290px;
+            width: 100%;
+        }
+
+        /* section are starting  in below  */
+        section {
+            background-color: whitesmoke;
+            min-height: 100vh;
+        }
+
+        .height {
+            min-height: 100vh;
+        }
+
+        .s-center {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chose-msg {
+            margin-top: 100px;
+        }
+
+        .chose-msg strong {
+
+            font-size: 40px;
+            font-weight: normal;
+            text-align: center;
+            color: #333333;
+        }
+
+        .wave-line {
+            max-width: 200px;
+            width: 100%;
+            height: 35px;
+            margin: 0 auto;
+            background-image: url(imgs/wave_line.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200px;
+       
+        }
+
+        .chose-msg p {
+            max-width: 600px;
+            width: 100%;
+            padding-top: 20px;
+            line-height: 1.5;
+            word-spacing: 2%;
+            color: #333333;
+        }
+
+        .bg-img-ctrl {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .left-box {
+            max-width: 550px;
+            width: 100%;
+            aspect-ratio: 1/1;
+            text-align: left;
+            display: flex;
+             flex-direction: column; 
+            justify-content: space-evenly;
+            align-items: flex-start;
+            order: 1;
+            
+        }
+
+        .right-box {
+            order: 2;
+            max-width: 550px;
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-image: url(imgs/stremo-laptop-2.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* padding-left: -100px; */
+        }
+        
+        .wave-line-left{
+             max-width: 200px;
+            width: 100%;
+            height: 35px;
+            background-image: url(imgs/wave_line.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 350px;
+        }
+
+        .left-box strong {
+            font-size: clamp(32px,2vw,40px);
+            font-weight: normal;
+            text-align: left;
+            color: #333333;
+        }
+        
+        .text{
+            font-size:clamp(15px, 1vw,20px);
+            font-weight: 400;
+            color: #333333;
+            line-height: 1.8;
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+        }
+        .box-shadow{
+             box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class=" header ">
+        <div class="container ctrl  " style="padding-top: 30px;">
+            <div class="nav flex ">
+                <div class="logo"></div>
+                <div class="right-nav">
+                    <div class="services ">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">How it Works</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-btn">
+                        <button>Login</button>
+                    </div>
+                    <div class="menu-icon" onclick="document.querySelector('.services').classList.toggle('show-menu')">☰
+                    </div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <p class="welcome">WELCOME TO STREAMO</p>
+                <h1>Best Streaming Site</h1>
+                <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut laqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip</p>
+                <div class="btn-main">
+                    <button class="primary-btn btn">Learn More</button>
+                    <button class="secondary-btn btn">Try Free Trial</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="bg">
+        <div class="container  center">
+
+            <div class="laptop-img"></div>
+        </div>
+        <div class="circles container center">
+            <div class="circle">
+                <div class="circle-head img1-position">
+
+                </div>
+                <div class="circle-body">
+                    <strong>Global Infrastructure</strong>
+                </div>
+                <div class="circle-footer">
+                    <p>nostruexercitation ullamco laboris nisi ut pariatur. Excepteur sint occaecdi tempora incidunt .
+                    </p>
+                </div>
+            </div>
+            <div class="circle">
+                <div class="circle-head img2-position"></div>
+                <div class="circle-body "><strong>Scalability</strong></div>
+                <div class="circle-footer">
+                    <p>nostruexercitation ullamco laboris nisi ut pariatur. Excepteur sint occaecdi tempora incidunt .
+                    </p>
+                </div>
+            </div>
+            <div class="circle">
+                <div class="circle-head img3-position"></div>
+                <div class="circle-body"><strong>Streaming Expertise</strong></div>
+                <div class="circle-footer">
+                    <p>nostruexercitation ullamco laboris nisi ut pariatur. Excepteur sint occaecdi tempora incidunt .
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section >
+        <div class="container  s-center ">
+            <div class="chose-msg">
+                <strong>Why choose us</strong>
+                <div class="wave-line"></div>
+                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut laqua. Ut enim ad minim veniam,
+                    quis</p>
+            </div>
+            <div class="bg-img-ctrl container">
+                <div class="left-box">
+                    <strong>Get Started With Trial</strong>
+                    <div class="wave-line-left"></div>
+                    <p class="text">eiusmod tempor incididunt ut laqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquipLorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+                    <p class="text">eniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                        aute irure dolor in reprehenderit in voluptate velit esse cillum dis iste na</p>
+                         <div class="btn-main">
+                    <button class="primary-btn btn box-shadow">Learn More</button>
+                    <button class="secondary-btn btn box-shadow">Try Free Trial</button>
+                </div>                
+                    </div>
+                <div class="right-box"></div>
+            </div>
+        </div>
+    </section>
+    <footer class="border">
+        <div class="container border">
+            hi
+        </div>
+    </footer>
+</body>
+
+</html>
